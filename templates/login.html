@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+  
+    {% block start %} 
+    {% include "loginheader.html" %}
+    <section class="banner_section">
+      <div class="blank"></div>
+      <form class="login_container" method="POST" onsubmit="return submitcheck()">
+        {% csrf_token %}
+        <h1>Sing In</h1>
+        <p style="color: red; text-align: center;">
+          {% if messages %}
+           {% for message in messages %}
+           {{ message }}
+           {% endfor %}
+           {% endif %} 
+        </p>
+        <div class="username box">
+          <p id="Email_num" class="p">Email or Mobile Number</p>
+          <input name="email" id="username" class="input" type="text" placeholder="Email or Mobile Number"onfocus="myFunction(Email_num,username,error_massage1)" onfocusout="thfun(Email_num,username,'Email or Mobile Number',error_massage1)">
+        </div>
+        <p  id="error_massage1" class="error_massage">
+          plese enter vaild Email address or mobile number
+        </p>
+        <div class="password box">
+          <p id="pass" class="p">password</p>
+          <input name="password" id="password" class="input" type="password"placeholder="password" onfocus="myFunction(pass,password,error_massage2)" onfocusout="thfun(pass,password,'password',error_massage2)">
+        </div>
+        <p id="error_massage2" class="error_massage">
+          your password must be contain between 8 and 16 characters 
+        </p>
+        <div class="btn_container">
+          <input class="submit_color" type="submit" value="Sing In">
+        </div>
+        <p class="divider">OR</p>
+        <div class="btn_container">
+          <input class="submit_google_color" type="submit" value="Use google account">
+        </div>
+        <div class="forget_password">
+          <a href="/forget/">Forget Password?</a>
+        </div>
+        <div class="newuser">
+        <p>New to Netflix
+          <a href="/register/">Sing up now</a>
+        </p>
+        </div>
+      </form>
+    
+    </section>
+
+    <script src="/static/js/login.js"></script>
+    {% endblock  %}  

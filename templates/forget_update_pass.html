@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+    {% block start %} 
+    {% include "loginheader.html" %}
+    <section class="banner_section">
+      <div class="blank"></div>
+        <form class="forget_container" method="POST" onsubmit="return submit_func()">
+          {% csrf_token %}
+          <h1>Update Password</h1>
+          <!-- message for  -->
+          {% if messages %}          
+          <p {% if message.tags %} id="{{ message.tags }}" class="error"{% endif %} >
+          {% for message in messages %}
+            {{message}}
+          {% endfor %}
+          </p>
+          {% endif %}
+           <!-- end of message -->
+            <div class="input_container">
+                <input class="input" type="password" id="password" name="newpassword" placeholder=" New password">
+            </div>
+            <p class="error" id="err"></p>
+            <div class="input_container">
+                <input class="input" type="password" id="cpassword" name="cnewpassword" placeholder=" confirm password">
+            </div>
+            <div class="input_container">
+                <input class="input" id="btn" type="submit" value="Submit">
+            </div>
+
+        </form>
+    </section>
+
+   <script src="/static/js/forget_update_pass.js"></script>
+   {% endblock  %}

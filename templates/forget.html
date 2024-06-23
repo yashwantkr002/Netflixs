@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+    {% block start %} 
+    {% include "loginheader.html" %}
+    <section class="banner_section">
+      <div class="blank"></div>
+        <form class="forget_container" method="POST" onsubmit="return submit_func()">
+            {% csrf_token %}
+          <h1>Forgot Password</h1>
+          <p class="error">
+            {% if messages %}
+            {% for message in messages  %}
+           <span>
+               {{message}}
+           </span> 
+            {% endfor %}
+            {% endif %}
+          </p> 
+            <div class="input_container ">
+                <input class="input" type="email" id="email" name="email" placeholder="Email" onfocus="(removeblock())">
+            </div>
+            <h3>OR</h3>
+            <div class="input_container">
+                <input class="input" type="number" id="mobile_no" name="mobile_no" placeholder="Mobile Number"  onfocus="(removeblock())">
+            </div>
+            <div class="input_container">
+                <input class="input" id="btn" type="submit" value="Submit">
+            </div>
+
+        </form>
+    </section>
+
+   <script src="/static/js/forget.js"></script>
+   {% endblock  %}  

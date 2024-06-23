@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+    {% block start %} 
+    {% include "loginheader.html" %}
+    <section class="banner_section">
+      <div class="blank"></div>  
+        <form class="otp_container" method="POST"  onsubmit="return submitcheck()"  >
+             {% csrf_token %}
+            <div class="check_shild">
+              <img src="/static/image/shield.png" alt="check">
+            </div>
+            <h2 class="otp_text">Enter otp code</h2>
+            <p style="color:red;">{% if messages %}
+            {% for message  in messages %}
+            {{message}}
+            {% endfor %}
+            {% endif %}</p>
+            <div class="input_container">
+              <input class="input" type="number" name="vel1" >
+              <input class="input" type="number" name="vel2" disabled>
+              <input class="input" type="number" name="vel3" disabled>
+              <input class="input" type="number" name="vel4"  disabled>
+            </div>
+            <input class="btn" type="submit" value="Verify OTP" name="" id="btn">
+        </form>
+    </section>
+    <section class="sucess_popup">
+      
+    </section>
+    <script src="/static/js/otp.js"></script>
+    {% endblock  %}

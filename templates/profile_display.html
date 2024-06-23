@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+    {% block start %} 
+    {% include "logoutheader.html" %}
+    <section class="banner_section">
+        <div class="proflile_container">
+          <div class="edit_icon" onclick="savefun()">
+            <i class="fa-solid fa-gear"></i><p>Edit</p>
+          </div>
+           <form action="" method="POST"enctype="multipart/form-data" >
+           {% csrf_token %}
+            <div class="profile_pic">
+              <img id="profile_img" src="/media/{{pic.profile_picture}}" alt="profile picture" />
+              <input id="profile_upload" name="photo" type="file" accept="image*/">
+              <i id="pen" class="fa-solid fa-pen" onclick="change_pic()"></i>
+          </div>
+          <div class="profile_info">
+              <div class="name">
+                <label for="Name">First Name</label>
+                <label for="Name">Last Name</label>
+              </div>
+              <div class="name_value">
+                <input class="fname" value="{{data.first_name}}" type="text" name="fname" disabled>
+                <input class="lname" value="{{data.last_name}}" type="text" name="lname" disabled>
+              </div>
+              <div class="email">
+                <label for="Email">Email</label>
+                <input type="email" value="{{data.email}}" disabled>
+              </div>
+              <div class="mobile">
+                <label for="Phone">Phone Number</label>
+                <input type="tel" value="7319829221" disabled>
+              </div>
+              <div class="save_btn">
+                <input id="save" type="submit" value="Save">
+              </div>
+          </div>
+           </form>
+        </div>
+    </section>
+   <script src="/static/js/profile_display.js"></script>
+   {% endblock  %}

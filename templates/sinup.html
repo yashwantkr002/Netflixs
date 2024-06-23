@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+    {% block start %} 
+    {% include "loginheader.html" %}
+    <section class="banner_section">
+      <div class="blank"></div>
+      <form
+        class="login_container"
+        method="POST"
+        onsubmit="return submitcheck()"  
+      >
+      {% csrf_token %}
+        <h1>Sing Up</h1>
+        <p id="errormessage">
+           {% if messages %}
+           {% for message in messages %}
+           {{ message }}
+           {% endfor %}
+           {% endif %}            
+        </p>
+        <div class="username box">
+          <p id="Email_num" class="p">Email</p>
+          <input
+            id="username"
+            class="input"
+            type="text"
+            placeholder="Email"
+            name="email"
+            onfocus="myFunction(Email_num,username,error_massage1)"
+            onfocusout="thfun(Email_num,username,'Email or Mobile Number',error_massage1)"
+          />
+        </div>
+        <p id="error_massage1" class="error_massage">
+          plese enter vaild Email address or mobile number
+        </p>
+        <div class="username box">
+          <p id="number_disp" class="p">Mobile Number</p>
+          <input
+            id="number"
+            class="input"
+            type="text"
+            name="number"
+            placeholder="Mobile Number"
+            onfocus="myFunction(number_disp,number,error_massage3)"
+            onfocusout="thfun(number_disp,number,'Mobile Number',error_massage3)"
+          />
+        </div>
+        <p id="error_massage3" class="error_massage">
+          plese enter vaild mobile number
+        </p>
+
+        <div class="password box">
+          <p id="pass" class="p">password</p>
+          <input
+            id="password"
+            class="input"
+            type="password"
+            name="password"
+            placeholder="password"
+            onfocus="myFunction(pass,password,error_massage2)"
+            onfocusout="thfun(pass,password,'password',error_massage2)"
+          />
+        </div>
+        <p id="error_massage2" class="error_massage">
+          your password must be contain between 8 and 16 characters
+        </p>
+
+        <div id="c_box"  class="password box">
+          <p id="cpass_disp" class="p">confirm password</p>
+          <input
+            id="cpassword"
+            class="input"
+            type="password"
+            name="cpassword"
+            placeholder="confirm password"
+            onfocus="myFunction(cpass_disp,cpassword,error_massage4)"
+            onfocusout="thfun(cpass_disp,cpassword,'confirm password',error_massage4)"
+          />
+        </div>
+        <p id="error_massage4" class="error_massage">
+          your password must be same
+        </p>
+        <div class="btn_container">
+          <input class="submit_color" type="submit" value="Sing Up" />
+        </div>
+        <p class="divider">OR</p>
+        <div class="btn_container">
+          <input
+            class="submit_google_color"
+            type="submit"
+            value="Use google account"
+          />
+        </div>
+        <div class="newuser">
+          <p>
+            Allrady have an account?
+            <a href="/login/">Login</a>
+          </p>
+        </div>
+      </form>
+    </section>
+
+    <script src="/static/js/singup.js"></script>
+    {% endblock  %}  
