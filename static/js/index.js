@@ -15,7 +15,7 @@ let flage=true
 
 // console.log(search)
 // this is for api functioning thing 
-const api_key = "b172320a372e7ac103c672f175afa77a";
+const api_key = "your api key";
 const api_endpoint = "https://api.themoviedb.org/3/";
 const image_path ="https://image.tmdb.org/t/p/w500";
 const originalImag="https://image.tmdb.org/t/p/original";
