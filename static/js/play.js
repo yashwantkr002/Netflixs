@@ -1,5 +1,5 @@
 const youtubeEndpoint="https://www.googleapis.com/youtube/v3";
-const youtubeApiKey="AIzaSyCLVIVGjxpdgGg7IWlw-XxlZrauSCGf3I8";
+const youtubeApiKey="your api key";
 let play_container=document.querySelector(".play_container") 
 // let queary="Turning Red";
 let queary=document.getElementById("slag").innerText
